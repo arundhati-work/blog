@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Delete Post
+        </title>
+    </head>
+    <body>
+        <p><a href="{% url 'post_list' %}">Back to All Posts</a> &nbsp;&nbsp;<a href="{% url 'home_page' %}">Back to Home</a></p>
+        <h1>Delete Post</h1>
+        <h2>Are you sure you want to delete: </h2>
+        <h3>{{post.title}} by {{post.author}}</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">DELETE</button>
+        </form>
+    </body>
+</html>

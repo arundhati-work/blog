@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            All Posts
+        </title>
+    </head>
+    <body>
+        <p><a href="{% url 'create_post'%}">Create New Post +</a> &nbsp;&nbsp;<a href="{% url 'home_page' %}">Back to Home</a></p>
+        <h1>All Posts</h1>
+        <ol>
+            {% for post in posts %}
+
+                <li>
+                    <h3><a href="{% url 'post_detail' post.id %}">{{post.title}}</a> by {{post.author}}</h3>
+                    <p>{{post.content | slice:":100"}}...</p>
+                </li>
+                {% empty %}
+                <li>
+                    <h3>No posts available.</h3>
+                </li>
+
+            {% endfor %}
+        </ol>
+    </body>
+</html>

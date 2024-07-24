@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% if post %} Edit {% else %} Create {% endif %} Post
+        </title>
+    </head>
+    <body>
+        <p><a href="{% url 'post_list' %}">Back to All Posts</a> &nbsp;&nbsp;<a href="{% url 'home_page' %}">Back to Home</a></p>
+        <h1>{% if post %} Edit {% else %} Create {% endif %} Post</h1>
+        <form method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit">{% if post %} UPDATE {% else %} CREATE {% endif %}</button>
+        </form>
+    </body>
+</html>

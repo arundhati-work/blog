@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {{post.title}}
+        </title>
+    </head>
+    <body>
+        <p><a href="{% url 'post_list' %}">Back to All Posts</a> &nbsp;&nbsp;<a href="{% url 'home_page' %}">Back to Home</a></p>
+        <h1>{{post.title}}</h1>
+        <h3>By {{post.author}}</h3>
+        <h5>Created on {{post.created_on}}</h5>
+        <h5>Last updated on {{post.updated_on}}</h5>
+        <p>{{post.content}}</p>
+        <p><a href="{% url 'edit_post' post.id %}">Edit Post</a> &nbsp;&nbsp;<a href="{% url 'delete_post' post.id %}">Delete Post</a></p>
+    </body>
+</html>
